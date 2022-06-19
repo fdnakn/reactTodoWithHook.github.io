@@ -32,16 +32,20 @@ function App() {
   }
 
   return (
-    <div className="App">
+   <div className="App">
       <h1>Todo List App</h1>
-
+      <form onSubmit={(e)=> {
+        e.preventDefault();
+        addItem();
+      }}>
       <input 
       type="text"
       placeholder='Add an Item...'
       value={newItem}
       onChange={e => setNewItem(e.target.value)}
       />
-      <button onClick={() => addItem()}>Add</button>
+      </form>
+      <button onClick={(e) => addItem()}>Add</button>
 
       <ul>
        {items.map(item => {
